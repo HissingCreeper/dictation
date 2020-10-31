@@ -7,12 +7,16 @@
 # @Software: PyCharm
 
 import pyttsx3
+import time
 
-f = open('dictation_text.txt', 'r')
-line = f.readline()
+f = open('text.txt', 'r', encoding='UTF-8')
+line = True
 engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
 while line: 
-    line = f.readline() 
-    print(line, end='')
+    line = f.readline()
+    # print(line, end='')
     engine.say(line)
+    time.sleep(0.3)
 engine.runAndWait()
