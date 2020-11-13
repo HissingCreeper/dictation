@@ -11,6 +11,8 @@ import pyttsx3
 f = open('text.txt', 'r', encoding='UTF-8')
 line = True
 engine = pyttsx3.init()
+rate = engine.getProperty('rate')
+engine.setProperty('rate', rate - 100)
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 while line:
